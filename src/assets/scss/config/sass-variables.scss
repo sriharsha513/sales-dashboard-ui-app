@@ -1,0 +1,77 @@
+//Background left-sidebar
+$bg-leftbar: #ffffff;
+$bg-leftbar-dark: #323742;
+// Leftbar width
+$leftbar-width: 250px;
+$leftbar-width-condensed: 70px;
+// Border-color
+$border-color: #ebeef5;
+$border-dark-color: #424e5a;
+// Small Leftbar Width
+$leftbar-width-sm: 160px;
+// Boxed layout width
+$boxed-layout-width: 1300px;
+// Compact sidebar
+$twocolumn-sidebar-width: 220px;
+$twocolumn-sidebar-iconview-width: 70px;
+$twocolumn-sidebar-bg: #ffffff;
+$twocolumn-sidebar-iconview-bg: #5369f8;
+// Dark leftbar menu color
+$menu-item-color-dark: #9097a7;
+$menu-item-hover-color-dark: #c8cddc;
+$menu-item-active-color-dark: #ffffff;
+//Menu item
+$menu-item: #4b4b5a;
+$menu-item-hover: #5369f8;
+$menu-item-active: #5369f8;
+$menu-sub-item-active: #5369f8;
+$menu-item-size: 0.95rem;
+$menu-sub-item-size: 0.875rem;
+// Horizontal Menu Item
+$hori-menu-item-color: #6e7488;
+//Rightbar Width
+$rightbar-width: 260px;
+$rightbar-bg: #ffffff;
+//Topbar Background
+$bg-topbar-light: #ffffff;
+$bg-topbar-dark: #323742;
+// Leftbar item shadow (Condensed item)
+$box-shadow-condensed: 3px 5px 10px 0 rgba(154, 161, 171, 0.2);
+// Topnav Height (Horizontal)
+$topnav-height: 55px;
+// Topbar Height
+$topbar-height: 70px;
+// Horizontal Layout
+$horizontal-layout-width: 90%;
+// Body minimum height
+$body-min-height: 1750px;
+// Secondary font
+$font-family-secondary: "IBM Plex Sans",
+sans-serif;
+// Font weight
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+// Dropdown Large
+$dropdown-lg-width: 320px;
+// Logo Display
+$logo-dark-display: none;
+$logo-light-display: block;
+// Logo Display - Auth Pages
+$logo-auth-dark-display: block;
+$logo-auth-light-display: none;
+// scss-docs-start gray-color-variables
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #f6f6f7;
+$gray-300: #e2e7f1;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #4b4b5a;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+$font-weight-bold: 700;
+$dark: $gray-800;
+$text-muted: $gray-600;
+$card-border-color: $gray-300;

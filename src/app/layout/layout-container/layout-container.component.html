@@ -1,0 +1,20 @@
+<div id="wrapper">
+    <!-- top-bar -->
+    <app-top-bar (mobileMenuButtonClicked)="onToggleMobileMenu()">
+    </app-top-bar>
+
+    <!-- side-bar-->
+    <app-side-bar [includeUserProfile]="showSidebarUserInfo">
+    </app-side-bar>
+
+    <div class="content-page">
+        <div class="content">
+            <!-- content -->
+            <div class="container-fluid" *ngIf="reRender">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <!-- footer -->
+        <app-footer></app-footer>
+    </div>
+</div>
