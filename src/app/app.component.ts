@@ -1,4 +1,3 @@
-import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
@@ -8,13 +7,12 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sales-dashboard-app';
-  mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-  navItems = [{itemName: 'Home', path: '/home'}, {itemName: 'About', path: '/about'}, {itemName: 'Profile', path: '/profile'}];
+  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  navItems = [{ itemName: 'Home', path: '/home' }, { itemName: 'About', path: '/about' }, { itemName: 'Profile', path: '/profile' }];
 
   fillerContent = Array.from(
-    {length: 50},
+    { length: 50 },
     () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -23,18 +21,12 @@ export class AppComponent {
        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
   );
 
-  private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    // this.mobileQuery.addListener(this._mobileQueryListener);
-    this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+  constructor(changeDetectorRef: ChangeDetectorRef) {
+
   }
 
   ngOnDestroy(): void {
-    // this.mobileQuery.removeListener(this._mobileQueryListener);
-    this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
 }

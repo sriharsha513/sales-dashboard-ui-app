@@ -7,6 +7,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbAlertModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { SimplebarAngularModule } from 'simplebar-angular';
 
 
 
@@ -23,7 +24,8 @@ import { NgbAlertModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootst
     RouterModule,
     NgbAlertModule,
     NgbCollapseModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    SimplebarAngularModule
   ]
 })
 export class LayoutModule { }
