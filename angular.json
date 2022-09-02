@@ -34,7 +34,11 @@
                         "allowedCommonJsDependencies": [
                             "can-use-dom",
                             "lodash",
-                            "core-js"
+                            "lodash.debounce",
+                            "lodash.memoize",
+                            "lodash.throttle",
+                            "core-js",
+                            "feather-icons"
                         ],
                         "scripts": []
                     },

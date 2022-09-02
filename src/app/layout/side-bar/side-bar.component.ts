@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { findAllParent, findMenuItem } from '../helper/utils';
 import { MenuItem, MENU_ITEMS } from '../models/menu.model';
@@ -9,12 +10,23 @@ import { MenuItem, MENU_ITEMS } from '../models/menu.model';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit, OnChanges, AfterViewInit {
+
+  @Input() navClasses: string | undefined;
   @Input() includeUserProfile = false;
   menuItems: MenuItem[] = [];
   loggedInUser: any = {};
   activeMenuItems: string[] = [];
 
-  constructor() { }
+  leftSidebarClass = 'sidebar-enable';
+
+  constructor(router: Router) {
+    router.events.forEach((event) => {
+      if (event instanceof NavigationEnd) {
+        this._activateMenu(); //actiavtes menu
+        this.hideMenu(); //hides leftbar on change of route
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.initMenu();
@@ -42,7 +54,8 @@ export class SideBarComponent implements OnInit, OnChanges, AfterViewInit {
       avatar: 'assets/images/users/avatar-1.jpg', location: 'California, USA', title: 'User Experience Specialist'
     };
   }
-  private _activateMenu(): void {
+
+  _activateMenu(): void {
     const div = document.getElementById('side-menu');
     let matchingMenuItem = null;
 

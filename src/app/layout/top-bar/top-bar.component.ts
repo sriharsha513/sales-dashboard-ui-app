@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { LayoutEventType } from '../constants/events';
+import { LEFT_SIDEBAR_TYPE_CONDENSED, LEFT_SIDEBAR_TYPE_DEFAULT } from '../models/layout.model';
 import { NotificationItem } from '../models/notification.model';
 import { ProfileOptionItem } from '../models/profile-options.model';
 import { SearchResultItem, SearchUserItem } from '../models/search.model';
+import { EventPipelineService } from '../services/event-pipeline/event-pipeline.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,17 +12,21 @@ import { SearchResultItem, SearchUserItem } from '../models/search.model';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  @Input() layoutType: string = '';
+
   topnavCollapsed = false;
   loggedInUser: any = {};
   searchUsers: SearchUserItem[] = [];
   searchResults: SearchResultItem[] = [];
   profileOptions: ProfileOptionItem[] = [];
   notificationList: NotificationItem[] = [];
-  
 
+  // input events
+  @Input() layoutType: string = '';
 
-  constructor() { }
+  // output events
+  @Output() mobileMenuButtonClicked = new EventEmitter<void>();
+
+  constructor(private eventPipelineService: EventPipelineService) { }
 
   ngOnInit(): void {
     this.loggedInUser = {
@@ -145,20 +152,56 @@ export class TopBarComponent implements OnInit {
 
   }
 
-  toggleFullScreen() {
-    
+  toggleFullScreen(): void {
+    let document: any = window.document;
+
+    document.body.classList.toggle('fullscreen-enable');
+
+    let elem = document.querySelector('.maximize-icon');
+
+    if (elem.hasAttribute('data-toggle') && document.body.getAttribute('data-toggle') === "fullscreen") {
+      document.body.removeAttribute('data-toggle');
+    }
+    else {
+      elem.setAttribute('data-toggle', 'fullscreen')
+    }
+
+    if (!document.fullscreenElement && /* alternative standard method */ !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.mozRequestFullScreen) {
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen();
+      }
+    } else {
+      if (document.cancelFullScreen) {
+        document.cancelFullScreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      }
+    }
   }
 
+
   changeSidebarWidth() {
+    if (document.body.hasAttribute('data-sidebar-size') && document.body.getAttribute('data-sidebar-size') === "condensed") {
+      this.eventPipelineService.broadcast(LayoutEventType.CHANGE_LEFT_SIDEBAR_TYPE, LEFT_SIDEBAR_TYPE_DEFAULT);
+    }
+    else {
+      this.eventPipelineService.broadcast(LayoutEventType.CHANGE_LEFT_SIDEBAR_TYPE, LEFT_SIDEBAR_TYPE_CONDENSED);
+    }
 
   }
 
   toggleMobileMenu(event: any) {
     this.topnavCollapsed = !this.topnavCollapsed;
     event.preventDefault();
-    // this.mobileMenuButtonClicked.emit();
+    this.mobileMenuButtonClicked.emit();
 
   }
 
-
 }
+
