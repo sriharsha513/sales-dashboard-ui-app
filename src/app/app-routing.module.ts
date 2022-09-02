@@ -26,10 +26,14 @@ const routes: Routes = [
   },
   {
     path: 'layout',
-    component: ShellLayoutComponent
+    component: ShellLayoutComponent,
+    children: [{
+      path: 'dashboard', // child route path
+      component: DashboardComponent, // child route component that the router renders
+    }]
   },
   {
-    path: 'Dashboard',
+    path: 'layout/Dashboard',
     component: DashboardComponent
   }
 ];
