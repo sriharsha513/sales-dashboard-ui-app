@@ -18,7 +18,7 @@ export const MENU_ITEMS: MenuItem[] = [
         label: 'Dashboard',
         isTitle: false,
         icon: 'home',
-        link: '/apps/calendar',
+        link: '/Dashboard',
     },
     { key: 'apps', label: 'AUTHORS', isTitle: true },
     {
