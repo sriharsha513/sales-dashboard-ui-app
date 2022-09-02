@@ -204,18 +204,19 @@
                     <i data-feather="menu" appFeatherIcon></i>
                 </button>
             </li> -->
+            <!-- *ngIf="layoutType!=='horizontal'" -->
             <li>
-                <button class="button-menu-mobile  d-none d-lg-block" (click)="changeSidebarWidth()" *ngIf="layoutType!=='horizontal'">
+                <button class="button-menu-mobile d-none d-lg-block" (click)="changeSidebarWidth()" (click)="toggleMobileMenu($event)">
                     <i data-feather="menu" appFeatherIcon></i>
                 </button>
             </li>
-
+            <!-- *ngIf="layoutType!=='horizontal'"  -->
             <li>
-                <button class="button-menu-mobile open-left d-block d-lg-none " *ngIf="layoutType!=='horizontal'" (click)="toggleMobileMenu($event)">
+                <button class="button-menu-mobile open-left d-block d-lg-none " (click)="toggleMobileMenu($event)">
                     <i data-feather="menu" appFeatherIcon></i>
                 </button>
             </li>
-
+            <!-- *ngIf="layoutType==='horizontal'" -->
             <li>
                 <!-- Mobile menu toggle (Horizontal Layout)-->
                 <a class="navbar-toggle nav-link" [ngClass]="{'open': topnavCollapsed}" (click)="toggleMobileMenu($event)" *ngIf="layoutType==='horizontal'">
