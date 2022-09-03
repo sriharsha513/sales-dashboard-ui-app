@@ -48,7 +48,7 @@ export const MENU_ITEMS: MenuItem[] = [
         label: 'All Books',
         isTitle: false,
         icon: 'book',
-        link: '/dashboard/analytics'
+        link: '/layout/books'
     },
     { key: 'apps', label: 'SALES', isTitle: true },
     {
@@ -56,7 +56,7 @@ export const MENU_ITEMS: MenuItem[] = [
         label: 'Book Sales',
         isTitle: false,
         icon: 'dollar-sign',
-        link: '/dashboard/ecommerce'
+        link: '/layout/book-sales'
     },
     {
         key: 'ds-analytics',

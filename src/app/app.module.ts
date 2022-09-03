@@ -14,6 +14,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from './layout/layout.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { BooksComponent } from './pages/books/books.component';
+import { BookSalesComponent } from './pages/book-sales/book-sales.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     HomeComponent,
     AboutComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    BooksComponent,
+    BookSalesComponent
   ],
   imports: [
     BrowserModule,

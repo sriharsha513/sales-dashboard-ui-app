@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title">ALL BOOKS</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <ng-container *ngFor="let item of breadcrumbItems">
+                        <li class="breadcrumb-item active">{{item.label}}</li>
+                    </ng-container>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="row bg-light p-3">
+            <div class="col-lg-6 col-xl-3">
+                <!-- Simple card -->
+                <div class="card mb-4 mb-xl-0">
+                    <img class="card-img-top img-fluid" src="assets/images/small/img-1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title fs-16">Book 1</h5>
+                        <a href="javascript:void(0);" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+                <!-- Simple card -->
+                <div class="card mb-4 mb-xl-0">
+                    <img class="card-img-top img-fluid" src="assets/images/small/img-1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title fs-16">Book 2</h5>
+                        <a href="javascript:void(0);" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

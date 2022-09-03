@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StatisticsWidgets } from './StatisticsWidgetsModel';
+import { BreadcrumbItem } from 'src/app/shared/components/models/page-title.model';
+import { StatisticsWidgets } from '../../shared/components/models/StatisticsWidgetsModel';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { StatisticsWidgets } from './StatisticsWidgetsModel';
 export class DashboardComponent implements OnInit {
 
   statisticsWidgets: StatisticsWidgets[] = [];
-
+  breadcrumbItems: BreadcrumbItem[] = [];
   constructor() {
     this.statisticsWidgets = [
       {
@@ -45,6 +46,7 @@ export class DashboardComponent implements OnInit {
         variant: 'success'
       }
     ];
+    this.breadcrumbItems = [{ label: 'Home', path: '/', }, { label: 'Dashboard', path: '/', active: true }];
   }
 
   ngOnInit(): void {
